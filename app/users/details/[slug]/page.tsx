@@ -1,5 +1,4 @@
 import UserDetailCard from "@/app/components/UserDetailCard/UserDetailCard";
-import Link from "next/link";
 import React from "react";
 
 interface User {

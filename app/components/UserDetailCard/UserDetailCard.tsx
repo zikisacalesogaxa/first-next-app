@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -21,14 +20,6 @@ const UserDetailCard = (user: User) => {
             are title and actions parts
           </p>
         </div>
-        <figure>
-          <Image
-            src={`https://placehold.co/500x300/png?text=${user.name}+image`}
-            width={500}
-            height={300}
-            alt={user.name}
-          />
-        </figure>
       </div>
     </div>
   );

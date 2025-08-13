@@ -1,37 +1,19 @@
+import Link from "next/link";
 import React from "react";
-
-interface User {
-  id: number;
-  name: string;
-  email: string;
-  username: string;
-}
+import UserCard from "../components/UserCard/UserCard";
 
 const UsersPage = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate a delay
-
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users: User[] = await res.json();
+  const users = await res.json();
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="font-bold text-5xl">Users</h1>
-      <table className="table table-ordered">
-        <thead>
-          <tr>
-            <th className="font-bold text-xl">Name</th>
-            <th className="font-bold text-xl">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="font-bold text-5xl mb-10">Users</h1>
+      <div className="flex flex-wrap justify-center gap-4">
+        {users.map((user: any) => (
+          <UserCard key={user.id} id={user.id} name={user.name} email={user.email}></UserCard>
+        ))}
+      </div>
     </div>
   );
 };

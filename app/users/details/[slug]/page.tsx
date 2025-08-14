@@ -14,11 +14,18 @@ export default async function DetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate loading delay
 
   const res = await fetch(`https://jsonplaceholder.typicode.com/users/${slug}`);
   const user: User = await res.json();
 
   return (
-    <UserDetailCard id={user.id} name={user.name} email={user.email}></UserDetailCard>
+    <>
+      <UserDetailCard
+        id={user.id}
+        name={user.name}
+        email={user.email}
+      ></UserDetailCard>
+    </>
   );
 }

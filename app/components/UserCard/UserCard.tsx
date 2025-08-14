@@ -17,7 +17,7 @@ const UserCard = (user: User) => {
           title and actions parts
         </p>
         <div className="card-actions justify-end">
-          <Link href={`/users/details/${user.id}`} className="border-0 btn-sm btn btn-primary btn-lg bg-blue-500 hover:bg-blue-700">
+          <Link href={`/users/details/${user.id}`} className="rounded-sm text-white border-0 btn-sm btn btn-primary bg-blue-500 hover:bg-blue-700">
             Details
           </Link>
         </div>
